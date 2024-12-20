@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return;
     }
     await timCoreInstance.init(
-      sdkAppID: sdkappid,
+      sdkAppID: 1400667799,
       loglevel: LogLevelEnum.V2TIM_LOG_DEBUG,
       listener: V2TimSDKListener(
         onConnectFailed: (code, error) {},
@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
     V2TimCallback res =
-        await timCoreInstance.login(userID: userid, userSig: usersig);
+        await timCoreInstance.login(userID: "3132", userSig: "eJyrVgrxCdZLrSjILEpVsjIzMLEwMNABi5WlFilZKRnpGShB*MUp2YkFBZkpSlaGJgYGZmbm5paWEJnMlNS8ksy0TLAGY0NjI5iOzHSgQGWaR65jsp9fYFiAc2RwTqB3Tni2a2VlUrJ2hmFoqbeRmat2SUWoi3t*ULktVGNJZi7QMYbmxiYmFibmZga1AIrXMCA_");
     print(
         "Log in to Tencent Cloud Instant Messaging IM Return：${res.toJson()}");
   }

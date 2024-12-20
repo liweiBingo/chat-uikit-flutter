@@ -81,7 +81,7 @@ class _TIMUIKitContactState extends TIMUIKitState<TIMUIKitContact> {
                 widget.onTapItem!(item);
               }
             },
-            bgColor: isDesktopScreen ? theme.wideBackgroundColor : null,
+            bgColor: isDesktopScreen ? theme.wideBackgroundColor : Colors.white,
             topList: widget.topList,
             topListItemBuilder: widget.topListItemBuilder,
           );

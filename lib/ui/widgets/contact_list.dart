@@ -1,4 +1,3 @@
-
 import 'package:azlistview_all_platforms/azlistview_all_platforms.dart';
 import 'package:flutter/material.dart';
 import 'package:lpinyin/lpinyin.dart';
@@ -17,8 +16,7 @@ class ContactList extends StatefulWidget {
   final List<V2TimFriendInfo> contactList;
   final bool isCanSelectMemberItem;
   final bool isCanSlidableDelete;
-  final Function(List<V2TimFriendInfo> selectedMember)?
-      onSelectedMemberItemChange;
+  final Function(List<V2TimFriendInfo> selectedMember)? onSelectedMemberItemChange;
   final Function()? handleSlidableDelte;
   final Color? bgColor;
 
@@ -67,8 +65,7 @@ class ContactList extends StatefulWidget {
 
 class _ContactListState extends TIMUIKitState<ContactList> {
   List<V2TimFriendInfo> selectedMember = [];
-  final TUIFriendShipViewModel friendShipViewModel =
-      serviceLocator<TUIFriendShipViewModel>();
+  final TUIFriendShipViewModel friendShipViewModel = serviceLocator<TUIFriendShipViewModel>();
 
   _getShowName(V2TimFriendInfo item) {
     final friendRemark = item.friendRemark ?? "";
@@ -110,17 +107,16 @@ class _ContactListState extends TIMUIKitState<ContactList> {
     final faceUrl = item.userProfile?.faceUrl ?? "";
 
     final V2TimUserStatus? onlineStatus = widget.isShowOnlineStatus
-        ? friendShipViewModel.userStatusList.firstWhere(
-            (element) => element.userID == item.userID,
+        ? friendShipViewModel.userStatusList.firstWhere((element) => element.userID == item.userID,
             orElse: () => V2TimUserStatus(statusType: 0))
         : null;
 
     bool disabled = false;
     if (widget.groupMemberList != null && widget.groupMemberList!.isNotEmpty) {
-      disabled = ((widget.groupMemberList
-                  ?.indexWhere((element) => element?.userID == item.userID)) ??
-              -1) >
-          -1;
+      disabled =
+          ((widget.groupMemberList?.indexWhere((element) => element?.userID == item.userID)) ??
+                  -1) >
+              -1;
     }
 
     final isDesktopScreen = TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
@@ -128,10 +124,8 @@ class _ContactListState extends TIMUIKitState<ContactList> {
     return Container(
       padding: const EdgeInsets.only(top: 8, left: 16, right: 12),
       decoration: BoxDecoration(
-          border: Border(
-              bottom: BorderSide(
-                  color:
-                      theme.weakDividerColor ?? CommonColor.weakDividerColor))),
+          color: Colors.white,
+          border: Border(bottom: BorderSide(color: theme.weakDividerColor ?? Colors.white))),
       child: Row(
         children: [
           if (widget.isCanSelectMemberItem)
@@ -164,10 +158,9 @@ class _ContactListState extends TIMUIKitState<ContactList> {
             child: SizedBox(
               height: isDesktopScreen ? 30 : 40,
               width: isDesktopScreen ? 30 : 40,
-              child: Avatar(
-                  onlineStatus: onlineStatus,
-                  faceUrl: faceUrl,
-                  showName: showName),
+              child: ClipOval(
+                child: Avatar(onlineStatus: onlineStatus, faceUrl: faceUrl, showName: showName),
+              ),
             ),
           ),
           Expanded(
@@ -176,8 +169,7 @@ class _ContactListState extends TIMUIKitState<ContactList> {
             padding: const EdgeInsets.only(top: 10, bottom: 20, right: 28),
             child: Text(
               showName,
-              style: TextStyle(
-                  color: Colors.black, fontSize: isDesktopScreen ? 14 : 18),
+              style: TextStyle(color: Colors.black, fontSize: isDesktopScreen ? 14 : 15),
             ),
           )),
         ],
@@ -193,7 +185,7 @@ class _ContactListState extends TIMUIKitState<ContactList> {
         return customWidget;
       }
     }
-    return InkWell(
+    return GestureDetector(
         onTap: () {
           if (memberInfo.onTap != null) {
             memberInfo.onTap!();
@@ -201,12 +193,12 @@ class _ContactListState extends TIMUIKitState<ContactList> {
         },
         child: Container(
           padding: const EdgeInsets.only(top: 8, left: 16),
-          decoration: BoxDecoration(
-              border: Border(bottom: BorderSide(color: hexToColor("DBDBDB")))),
+          decoration:
+              BoxDecoration(border: Border(bottom: BorderSide(color: hexToColor("DBDBDB")))),
           child: Row(
             children: [
               Container(
-                height: isDesktopScreen ? 30 : 40,
+                height: isDesktopScreen ? 30 : 25,
                 width: isDesktopScreen ? 30 : 40,
                 margin: const EdgeInsets.only(right: 12, bottom: 12),
                 child: memberInfo.icon,
@@ -220,8 +212,7 @@ class _ContactListState extends TIMUIKitState<ContactList> {
                     Text(
                       memberInfo.name,
                       style: TextStyle(
-                          color: hexToColor("111111"),
-                          fontSize: isDesktopScreen ? 14 : 18),
+                          color: hexToColor("111111"), fontSize: isDesktopScreen ? 14 : 18),
                     ),
                     Expanded(child: Container()),
                     // if (item.id == "newContact")
@@ -249,9 +240,8 @@ class _ContactListState extends TIMUIKitState<ContactList> {
     final isDesktopScreen = TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
 
     if (widget.topList != null && widget.topList!.isNotEmpty) {
-      final topList = widget.topList!
-          .map((e) => ISuspensionBeanImpl(memberInfo: e, tagIndex: '@'))
-          .toList();
+      final topList =
+          widget.topList!.map((e) => ISuspensionBeanImpl(memberInfo: e, tagIndex: '@')).toList();
       showList.insertAll(0, topList);
     }
 
@@ -259,10 +249,7 @@ class _ContactListState extends TIMUIKitState<ContactList> {
       return Column(
         children: [
           ...showList.map((e) => generateTopItem(e.memberInfo)).toList(),
-          Expanded(
-              child: widget.emptyBuilder != null
-                  ? widget.emptyBuilder!(context)
-                  : Container())
+          Expanded(child: widget.emptyBuilder != null ? widget.emptyBuilder!(context) : Container())
         ],
       );
     }
@@ -280,7 +267,8 @@ class _ContactListState extends TIMUIKitState<ContactList> {
                     ? theme.conversationItemChooseBgColor
                     : widget.bgColor)
                 : null,
-            child: InkWell(
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
                 if (widget.isCanSelectMemberItem) {
                   if (selectedMember.contains(memberInfo)) {
