@@ -58,6 +58,7 @@ class TIMUIKitProfileWidget extends TIMUIKitClass {
     return TIMUIKitOperationItem(
       smallCardMode: smallCardMode,
       isEmpty: false,
+      titleTextStyle: TextStyle(color: Colors.red, fontSize: 14),
       operationName: TIM_t("加入黑名单"),
       type: "switch",
       operationValue: value,
