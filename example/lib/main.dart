@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return;
     }
     await timCoreInstance.init(
-      sdkAppID: ,
+      sdkAppID: sdkappid,
       loglevel: LogLevelEnum.V2TIM_LOG_DEBUG,
       listener: V2TimSDKListener(
         onConnectFailed: (code, error) {},

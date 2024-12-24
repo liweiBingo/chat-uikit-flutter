@@ -223,11 +223,13 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
               mainAxisSize: MainAxisSize.min,
               children: widget.isFromSelf
                   ? [
-                      Container(width: _getSoundLen()),
-                      Text(
-                        "''${stateElement.duration} ",
-                        style:
-                            widget.fontStyle ?? const TextStyle(color: Colors.white, fontSize: 12),
+                      Container(
+                        width: _getSoundLen(),
+                        child: Text(
+                          "${stateElement.duration}“",
+                          style: widget.fontStyle ??
+                              const TextStyle(color: Colors.white, fontSize: 12),
+                        ),
                       ),
                       isPlaying
                           ? Image.asset(
