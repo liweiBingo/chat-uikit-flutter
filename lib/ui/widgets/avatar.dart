@@ -60,17 +60,22 @@ class Avatar extends TIMUIKitStatelessWidget {
     // final emptyAvatarBuilder = coreService.emptyAvatarBuilder;
     if (faceUrl != "") {
       if (isFromLocalAsset) {
-        return Image.asset(
-          faceUrl,
-          fit: BoxFit.cover,
+        return ClipOval(
+          child: Image.asset(
+            faceUrl,
+            fit: BoxFit.cover,
+          ),
         );
       }
-      return CachedNetworkImage(
-        imageUrl: faceUrl,
-        fadeInDuration: const Duration(milliseconds: 0),
-        errorWidget: (BuildContext context, String c, dynamic s) {
-          return defaultAvatar();
-        },
+      return ClipOval(
+        child: CachedNetworkImage(
+          imageUrl: faceUrl,
+          fit: BoxFit.cover,
+          fadeInDuration: const Duration(milliseconds: 0),
+          errorWidget: (BuildContext context, String c, dynamic s) {
+            return defaultAvatar();
+          },
+        ),
       );
     } else {
       return defaultAvatar();
