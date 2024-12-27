@@ -66,7 +66,7 @@ class TIMUIKitChatExample extends StatelessWidget {
         isAllowClickAvatar: true,
         // isUseDefaultEmoji: true,
         isAllowLongPressMessage: true,
-        isShowReadingStatus: true,
+        isShowReadingStatus: false,
         isShowGroupReadingStatus: true,
         notificationTitle: "",
         isUseMessageReaction: true,

@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
     V2TimCallback res =
-        await timCoreInstance.login(userID: "", userSig: "");
+        await timCoreInstance.login(userID: userid, userSig: usersig);
     print(
         "Log in to Tencent Cloud Instant Messaging IM Return：${res.toJson()}");
   }
