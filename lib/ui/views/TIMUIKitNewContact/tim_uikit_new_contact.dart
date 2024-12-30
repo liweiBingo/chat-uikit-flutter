@@ -123,13 +123,13 @@ class _TIMUIKitNewContactState extends TIMUIKitState<TIMUIKitNewContact> {
                       child: InkWell(
                         child: Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 14, vertical: 6),
+                              horizontal: 12, vertical: 4),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
                               color: theme.primaryColor,
                               border: Border.all(
                                   width: 1,
-                                  color: theme.weakTextColor ??
+                                  color: theme.primaryColor ??
                                       CommonColor.weakTextColor)),
                           child: Text(
                             TIM_t("同意"),
@@ -161,10 +161,10 @@ class _TIMUIKitNewContactState extends TIMUIKitState<TIMUIKitNewContact> {
                                 color: Colors.white,
                                 border: Border.all(
                                     width: 1,
-                                    color: theme.weakTextColor ??
+                                    color: theme.primaryColor ??
                                         CommonColor.weakTextColor)),
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 6),
+                                horizontal: 12, vertical: 4),
                             child: Text(
                               TIM_t("拒绝"),
                               style: TextStyle(

@@ -62,19 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
   CoreServicesImpl timCoreInstance = TIMUIKitCore.getInstance();
 
   int getSDKAPPID() {
-    return const int.fromEnvironment('SDK_APPID', defaultValue: 0);
+    return const int.fromEnvironment('SDK_APPID', defaultValue:1400667799 );
   }
 
   String getUserID() {
-    return const String.fromEnvironment('LOGINUSERID', defaultValue: "10045363");
+    return const String.fromEnvironment('LOGINUSERID', defaultValue: "3217");
   }
 
   String getSecret() {
-    return const String.fromEnvironment('SECRET', defaultValue: "");
+    return const String.fromEnvironment('SECRET', defaultValue: "33333");
   }
 
   String getUsersig() {
-    return const String.fromEnvironment('USERSIG', defaultValue: "");
+    return const String.fromEnvironment('USERSIG', defaultValue: "eJyrVgrxCdZLrSjILEpVsjIzMLEwMNABi5WlFilZKRnpGShB*MUp2YkFBZkpSlaGJgYGZmbm5paWEJnMlNS8ksy0TLAGY0NjI5iOzHSgQHmld25xZE5hWqVPZE5Zvk*li3FQhltSTqVviUdURrp2crB5npOpZ7lTZr4tVGNJZi7QMYbmxqamRqZmxpa1AMiJMTM_");
   }
 
   initTIMUIKIT() async {
