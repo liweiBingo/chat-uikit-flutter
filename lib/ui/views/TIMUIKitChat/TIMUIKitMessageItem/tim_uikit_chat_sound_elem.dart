@@ -15,6 +15,7 @@ import 'package:tencent_cloud_chat_uikit/ui/utils/platform.dart';
 import 'package:tencent_cloud_chat_uikit/ui/utils/sound_record.dart';
 import 'package:tencent_im_base/tencent_im_base.dart';
 
+import '../../../utils/common_utils.dart';
 import 'TIMUIKitMessageReaction/tim_uikit_message_reaction_show_panel.dart';
 
 class TIMUIKitSoundElem extends StatefulWidget {
@@ -266,6 +267,21 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                       ),
                       Container(width: _getSoundLen()),
                     ],
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
+                 widget.message.isPeerRead! ?  "images/grey_double_check_icon.png" :"images/double_check_icon.png",
+                  width: 15,
+                  height: 15,
+                ),
+                Text(
+                  TencentUtils.formatTimestampTo12Hour(widget.message.timestamp ?? 0),
+                  style: TextStyle(color: widget.isFromSelf ? Colors.white :Colors.black, fontSize: 10, height: 1.1),
+                )
+              ],
             ),
             if (widget.isShowMessageReaction ?? true)
               TIMUIKitMessageReactionShowPanel(

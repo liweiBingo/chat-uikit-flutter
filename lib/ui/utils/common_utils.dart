@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class TencentUtils{
   static bool isTextNotEmpty(String? text){
     return text != null && text.isNotEmpty;
@@ -153,6 +155,12 @@ class TencentUtils{
         return "*/*";
     }
   }
-
-
+//  int类型时间戳处理，返回小时和分钟 并且后面区分12小时制 拼接 AM 或者PM
+  static String formatTimestampTo12Hour(int timestamp) {
+    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+    // 使用DateFormat来进行格式化，设置为hh:mm a格式（hh表示12小时制小时，mm表示分钟，a表示AM/PM标识）
+    DateFormat formatter = DateFormat('hh:mm a', 'en_US');
+    return formatter.format(dateTime);
+  }
 }
+
