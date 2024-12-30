@@ -111,10 +111,12 @@ class _TIMUIKitGroupState extends TIMUIKitState<TIMUIKitGroup> {
                   child: SizedBox(
                     height: isDesktopScreen ? 30 : 40,
                     width: isDesktopScreen ? 30 : 40,
-                    child: Avatar(
-                      faceUrl: faceUrl,
-                      showName: showName,
-                      type: 2,
+                    child: ClipOval(
+                      child: Avatar(
+                        faceUrl: faceUrl,
+                        showName: showName,
+                        type: 2,
+                      ),
                     ),
                   ),
                 ),
