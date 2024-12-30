@@ -98,6 +98,7 @@ flutter:
   assets:
     - images/
     - images/svg/
+
     # - assets/custom_face_resource/4349/
 
   # To add assets to your package, add an assets section, like this:

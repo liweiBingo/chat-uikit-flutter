@@ -268,21 +268,35 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                       Container(width: _getSoundLen()),
                     ],
             ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.asset(
-                 widget.message.isPeerRead! ?  "images/grey_double_check_icon.png" :"images/double_check_icon.png",
-                  width: 15,
-                  height: 15,
-                ),
-                Text(
-                  TencentUtils.formatTimestampTo12Hour(widget.message.timestamp ?? 0),
-                  style: TextStyle(color: widget.isFromSelf ? Colors.white :Colors.black, fontSize: 10, height: 1.1),
-                )
-              ],
-            ),
+          widget.isFromSelf ?  Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  widget.message.isPeerRead!
+                      ? Image.asset(
+                    "images/grey_double_check_icon.png",
+                    width: 15,
+                    package: 'tencent_cloud_chat_uikit',
+                    height: 15,
+                  )
+                      : Image.asset(
+                    "images/double_check_icon.png",
+                    width: 15,
+                    package: 'tencent_cloud_chat_uikit',
+                    height: 15,
+                  ),
+                  Text(
+                    TencentUtils.formatTimestampTo12Hour(widget.message.timestamp ?? 0),
+                    style: TextStyle(
+                        color: widget.isFromSelf ? Colors.white : Colors.black,
+                        fontSize: 10,
+                        height: 1.1),
+                  )
+                ],
+              ),
+          ) : SizedBox(),
             if (widget.isShowMessageReaction ?? true)
               TIMUIKitMessageReactionShowPanel(
                 message: widget.message,
