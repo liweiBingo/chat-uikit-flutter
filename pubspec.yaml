@@ -76,6 +76,8 @@ dependencies:
   markdown: ^7.1.0
   logger: ^2.0.1
   visibility_detector: ^0.4.0+2
+  lottie: ^3.0.0
+  archive: ^3.4.8
 
 dev_dependencies:
   flutter_lints: ^1.0.0
@@ -98,6 +100,7 @@ flutter:
   assets:
     - images/
     - images/svg/
+    - images/lottie/
 
     # - assets/custom_face_resource/4349/
 

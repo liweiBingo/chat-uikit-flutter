@@ -4,6 +4,7 @@ import 'dart:math';
 // import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:lottie/lottie.dart';
 import 'package:tencent_cloud_chat_uikit/base_widgets/tim_ui_kit_base.dart';
 import 'package:tencent_cloud_chat_uikit/base_widgets/tim_ui_kit_state.dart';
 import 'package:tencent_cloud_chat_uikit/business_logic/separate_models/tui_chat_separate_view_model.dart';
@@ -226,6 +227,7 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                   ? [
                       Container(
                         width: _getSoundLen(),
+                        alignment: Alignment.center,
                         child: Text(
                           "${stateElement.duration}“",
                           style: widget.fontStyle ??
@@ -233,31 +235,34 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                         ),
                       ),
                       isPlaying
-                          ? Image.asset(
-                              'images/play_voice_send.gif',
-                              package: 'tencent_cloud_chat_uikit',
-                              width: 16,
-                              height: 16,
-                            )
+                          ? Lottie.asset("images/lottie/play_voice_receive2_lo.json", width: 20, height: 20,package: "tencent_cloud_chat_uikit")
+                          // ? Image.asset(
+                          //     'images/play_voice_send2.gif',
+                          //     package: 'tencent_cloud_chat_uikit',
+                          //     width: 16,
+                          //     height: 16,
+                          //   )
                           : Image.asset(
-                              'images/voice_send.png',
+                              'images/voice_send2.png',
                               package: 'tencent_cloud_chat_uikit',
-                              width: 16,
-                              height: 16,
+                              width: 20,
+                              height: 20,
                             ),
                     ]
                   : [
                       isPlaying
-                          ? Image.asset(
-                              'images/play_voice_receive.gif',
-                              package: 'tencent_cloud_chat_uikit',
-                              width: 16,
-                              height: 16,
-                            )
+                          ? Lottie.asset("images/lottie/play_voice_send2_lo.json", width: 20, height: 20)
+
+                          // ? Image.asset(
+                          //         'images/play_voice_receive2.gif',
+                          //         package: 'tencent_cloud_chat_uikit',
+                          //         width: 16,
+                          //         height: 16,
+                          //       )
                           : Image.asset(
-                              'images/voice_receive.png',
-                              width: 16,
-                              height: 16,
+                              'images/voice_receive2.png',
+                              width: 20,
+                              height: 20,
                               package: 'tencent_cloud_chat_uikit',
                             ),
                       Text(
@@ -268,35 +273,37 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                       Container(width: _getSoundLen()),
                     ],
             ),
-          widget.isFromSelf ?  Padding(
-            padding: const EdgeInsets.only(top: 5),
-            child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  widget.message.isPeerRead!
-                      ? Image.asset(
-                    "images/grey_double_check_icon.png",
-                    width: 15,
-                    package: 'tencent_cloud_chat_uikit',
-                    height: 15,
+            widget.isFromSelf
+                ? Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        widget.message.isPeerRead!
+                            ? Image.asset(
+                                "images/grey_double_check_icon.png",
+                                width: 15,
+                                package: 'tencent_cloud_chat_uikit',
+                                height: 15,
+                              )
+                            : Image.asset(
+                                "images/double_check_icon.png",
+                                width: 15,
+                                package: 'tencent_cloud_chat_uikit',
+                                height: 15,
+                              ),
+                        Text(
+                          TencentUtils.formatTimestampTo12Hour(widget.message.timestamp ?? 0),
+                          style: TextStyle(
+                              color: widget.isFromSelf ? Colors.white : Colors.black,
+                              fontSize: 10,
+                              height: 1.1),
+                        )
+                      ],
+                    ),
                   )
-                      : Image.asset(
-                    "images/double_check_icon.png",
-                    width: 15,
-                    package: 'tencent_cloud_chat_uikit',
-                    height: 15,
-                  ),
-                  Text(
-                    TencentUtils.formatTimestampTo12Hour(widget.message.timestamp ?? 0),
-                    style: TextStyle(
-                        color: widget.isFromSelf ? Colors.white : Colors.black,
-                        fontSize: 10,
-                        height: 1.1),
-                  )
-                ],
-              ),
-          ) : SizedBox(),
+                : SizedBox(),
             if (widget.isShowMessageReaction ?? true)
               TIMUIKitMessageReactionShowPanel(
                 message: widget.message,

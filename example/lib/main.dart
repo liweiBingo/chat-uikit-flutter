@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   CoreServicesImpl timCoreInstance = TIMUIKitCore.getInstance();
 
   int getSDKAPPID() {
-    return const int.fromEnvironment('SDK_APPID', defaultValue:0 );
+    return const int.fromEnvironment('SDK_APPID', defaultValue:1400667799 );
   }
 
   String getUserID() {
@@ -86,6 +86,14 @@ class _MyHomePageState extends State<MyHomePage> {
       print("The running parameters are abnormal, please check");
       return;
     }
+    timCoreInstance.setTheme(theme: const TUITheme(
+        primaryColor:  Color(0xFF5A47FE),
+        chatMessageItemFromSelfBgColor:Color(0xFF988BDB),
+        chatMessageItemTextColor: Colors.green,
+        weakDividerColor:  Color(0xFFF5F5F5),
+        conversationItemChooseBgColor: Colors.white,
+        wideBackgroundColor: Colors.white,
+        textColor: Colors.orange));
     await timCoreInstance.init(
       sdkAppID: sdkappid,
       loglevel: LogLevelEnum.V2TIM_LOG_DEBUG,
