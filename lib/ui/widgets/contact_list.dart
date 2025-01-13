@@ -258,6 +258,7 @@ class _ContactListState extends TIMUIKitState<ContactList> {
       memberList: showList,
       itemBuilder: (context, index) {
         final memberInfo = showList[index].memberInfo;
+        print(memberInfo.toString());
         if (memberInfo is TopListItem) {
           return generateTopItem(memberInfo);
         } else {

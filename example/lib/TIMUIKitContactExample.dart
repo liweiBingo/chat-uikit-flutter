@@ -9,21 +9,9 @@ class TIMUIKitContactExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TIMUIKitConversation(
+    return TIMUIKitContact(
 
-onTapItem: (item){
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => Scaffold(
-        appBar: AppBar(
-          title: Text(item.showName??''),
-        ),
-        body: TIMUIKitChatExample(selectedConversation: item,),
-      ),
-    ),
-  );
-},
+
     );
   }
 }
