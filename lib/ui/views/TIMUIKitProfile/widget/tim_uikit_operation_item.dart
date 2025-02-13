@@ -59,8 +59,9 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
           ? EdgeInsets.symmetric(
               horizontal: isUseCheckedBoxOnWide ? 6 : 16, vertical: smallCardMode ? 0 : 4)
           : const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      margin: isDesktopScreen ? null : const EdgeInsets.symmetric(horizontal: 10),
+      // margin: isDesktopScreen ? null : const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(8)),
+      clipBehavior: Clip.antiAlias,
       child: (isDesktopScreen && isUseCheckedBoxOnWide)
           ? Row(
               children: [
@@ -141,6 +142,8 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
                     child: CupertinoSwitch(
                       value: operationValue ?? false,
                       onChanged: onSwitchChange,
+                      trackColor: Color(0xFFCFCFCF),
+                      offLabelColor: Color(0xFFCFCFCF),
                       activeColor: theme.primaryColor,
                     ),
                   ),
@@ -149,6 +152,8 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
                     scale: 0,
                     child: CupertinoSwitch(
                       value: false,
+                      trackColor: Color(0xFFCFCFCF),
+                      offLabelColor: Color(0xFFCFCFCF),
                       onChanged: onSwitchChange,
                     ),
                   ),
@@ -182,6 +187,8 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
                       scale: 0,
                       child: CupertinoSwitch(
                         value: false,
+                        trackColor: Color(0xFFCFCFCF),
+                        offLabelColor: Color(0xFFCFCFCF),
                         onChanged: onSwitchChange,
                       ),
                     ),

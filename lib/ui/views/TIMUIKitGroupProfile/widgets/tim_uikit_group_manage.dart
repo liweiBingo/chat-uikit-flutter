@@ -223,7 +223,7 @@ class _GroupProfileGroupManagePageState
                             onChanged: (value) async {
                               widget.model.setMuteAll(value);
                             },
-                            activeColor: theme.primaryColor)
+                            activeColor: theme.primaryColor,offLabelColor: Color(0xFFCFCFCF),trackColor: Color(0xFFCFCFCF),)
                       ],
                     ),
                   ),
