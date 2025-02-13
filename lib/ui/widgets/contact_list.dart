@@ -124,7 +124,7 @@ class _ContactListState extends TIMUIKitState<ContactList> {
     return Container(
       padding: const EdgeInsets.only(top: 8, left: 16, right: 12),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.black,
           border: Border(bottom: BorderSide(color: theme.weakDividerColor ?? Colors.white))),
       child: Row(
         children: [
@@ -169,7 +169,7 @@ class _ContactListState extends TIMUIKitState<ContactList> {
             padding: const EdgeInsets.only(top: 10, bottom: 20, right: 28),
             child: Text(
               showName,
-              style: TextStyle(color: Colors.black, fontSize: isDesktopScreen ? 14 : 15),
+              style: TextStyle(color: Colors.white, fontSize: isDesktopScreen ? 14 : 15),
             ),
           )),
         ],
@@ -212,7 +212,7 @@ class _ContactListState extends TIMUIKitState<ContactList> {
                     Text(
                       memberInfo.name,
                       style: TextStyle(
-                          color: hexToColor("111111"), fontSize: isDesktopScreen ? 14 : 18),
+                          color: hexToColor("CFCFCF"), fontSize: isDesktopScreen ? 14 : 18),
                     ),
                     Expanded(child: Container()),
                     // if (item.id == "newContact")

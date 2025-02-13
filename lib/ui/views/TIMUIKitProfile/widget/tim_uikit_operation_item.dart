@@ -60,7 +60,7 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
               horizontal: isUseCheckedBoxOnWide ? 6 : 16, vertical: smallCardMode ? 0 : 4)
           : const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       margin: isDesktopScreen ? null : const EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8)),
+      decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(8)),
       child: (isDesktopScreen && isUseCheckedBoxOnWide)
           ? Row(
               children: [
@@ -82,7 +82,7 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
                   children: [
                     Text(
                       operationName,
-                      style: titleTextStyle ?? const TextStyle(fontSize: 14),
+                      style: titleTextStyle ?? const TextStyle(fontSize: 14,color: Colors.white),
                     ),
                     if (operationDescription != null)
                       Text(
@@ -105,7 +105,7 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
                       children: [
                         Text(
                           operationName,
-                          style: TextStyle(color: isDesktopScreen ? hexToColor("7f7f7f") : null),
+                          style: TextStyle(color: isDesktopScreen ? Colors.white : Colors.white),
                         ),
                         if (operationDescription != null)
                           Text(
@@ -124,7 +124,7 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
                       children: [
                         Text(
                           operationName,
-                          style: TextStyle(color: isDesktopScreen ? hexToColor("7f7f7f") : null),
+                          style: TextStyle(color: isDesktopScreen ? hexToColor("7f7f7f") : Colors.white),
                         ),
                         if (operationDescription != null)
                           Text(

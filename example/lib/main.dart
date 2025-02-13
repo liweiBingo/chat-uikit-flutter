@@ -62,11 +62,11 @@ class _MyHomePageState extends State<MyHomePage> {
   CoreServicesImpl timCoreInstance = TIMUIKitCore.getInstance();
 
   int getSDKAPPID() {
-    return const int.fromEnvironment('SDK_APPID', defaultValue:0 );
+    return const int.fromEnvironment('SDK_APPID', defaultValue:1400667799 );
   }
 
   String getUserID() {
-    return const String.fromEnvironment('LOGINUSERID', defaultValue: "3217");
+    return const String.fromEnvironment('LOGINUSERID', defaultValue: "3132");
   }
 
   String getSecret() {
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   String getUsersig() {
-    return const String.fromEnvironment('USERSIG', defaultValue: "eJyrVgrxCdZLrSjILEpVsjIzMLEwMNABi5WlFilZKRnpGShB*MUp2YkFBZkpSlaGJgYGZmbm5paWEJnMlNS8ksy0TLAGYyNDc5iOzHSggGFFomugdqBxUEiue5R7kXlKiXOBt1dxRFBydnhGfpBZoL9fUXlSZFF4ZKQtVGNJZi7QMYbmxmaGJqYWJsa1AIK1MEI_");
+    return const String.fromEnvironment('USERSIG', defaultValue: "eJw1jssKwjAURP8layk3Tci1ATfZ*EDc2IUui0nkUlpDW2Op*O*GVpdzhsPMm5XHc*bGQJ1jWoFcA6xmFl3HNMszYEvubV2FQJZpLgGUQiyKpSHr2oE8zYLgIv8bdE-AoziFrcPYYhNJVVg7w205ecTDZGj3UuPzcbua-rLf-MSBmnSGoyhk2hL88wWG7zA1");
   }
 
   initTIMUIKIT() async {
@@ -91,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
         chatMessageItemFromSelfBgColor:Color(0xFF988BDB),
         chatMessageItemTextColor: Colors.green,
         weakDividerColor:  Color(0xFFF5F5F5),
+        weakTextColor:Colors.white,
         conversationItemChooseBgColor: Colors.white,
         wideBackgroundColor: Colors.white,
         textColor: Colors.orange));
