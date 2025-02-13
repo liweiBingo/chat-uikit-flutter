@@ -44,7 +44,7 @@ class _AZListViewContainerState extends TIMUIKitState<AZListViewContainer> {
       height: susHeight,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(left: 16.0),
-      color: theme.weakDividerColor,
+      color: Color(0xFF666666),
       alignment: Alignment.centerLeft,
       child: Text(
         tag,
