@@ -724,6 +724,7 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       height: 248,
+
       decoration: BoxDecoration(
         // color: hexToColor("EBF0F6"),
         border: Border(
@@ -765,7 +766,7 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
                                 Text(
                                   item.title,
                                   style: TextStyle(
-                                      fontSize: 12, color: theme.darkTextColor),
+                                      fontSize: 12, color: Colors.black),
                                 )
                               ],
                             ),
