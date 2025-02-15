@@ -74,12 +74,14 @@ class _TIMUIKitGroupState extends TIMUIKitState<TIMUIKitGroup> {
         TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
     return Container(
       decoration: BoxDecoration(
+                  color:Colors.black,
+
           border: Border(
               bottom: BorderSide(
                   color:
                       theme.weakDividerColor ?? CommonColor.weakDividerColor))),
       child: Material(
-        color: isDesktopScreen ? theme.wideBackgroundColor : null,
+        color: isDesktopScreen ? theme.wideBackgroundColor : Colors.black,
         child: InkWell(
           onTap: (() async {
             if (widget.onTapItem != null) {
@@ -127,7 +129,7 @@ class _TIMUIKitGroupState extends TIMUIKitState<TIMUIKitGroup> {
                   child: Text(
                     showName,
                     style: TextStyle(
-                        color: Colors.black, fontSize: isDesktopScreen ? 14 : 18),
+                        color: Colors.white, fontSize: isDesktopScreen ? 14 : 18),
                   ),
                 ))
               ],
