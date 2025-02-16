@@ -53,7 +53,7 @@ class GroupProfileAddOpt extends TIMUIKitStatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color(0xFF1D1B36),
           border: isDesktopScreen ? null : Border(
               bottom: BorderSide(
                   color:
