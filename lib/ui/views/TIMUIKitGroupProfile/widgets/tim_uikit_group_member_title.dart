@@ -125,8 +125,7 @@ class GroupMemberTitle extends TIMUIKitStatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      color: Colors.white,
-      child: Column(
+                      color: Color(0xFF1D1B36),      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
