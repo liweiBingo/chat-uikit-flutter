@@ -29,12 +29,7 @@ class TIMUIKitNewContact extends StatefulWidget {
   final NewContactLifeCycle? lifeCycle;
 
   const TIMUIKitNewContact(
-      {Key? key,
-      this.lifeCycle,
-      this.onAccept,
-      this.onRefuse,
-      this.emptyBuilder,
-      this.itemBuilder})
+      {Key? key, this.lifeCycle, this.onAccept, this.onRefuse, this.emptyBuilder, this.itemBuilder})
       : super(key: key);
 
   @override
@@ -45,28 +40,23 @@ class _TIMUIKitNewContactState extends TIMUIKitState<TIMUIKitNewContact> {
   late TUIFriendShipViewModel model = serviceLocator<TUIFriendShipViewModel>();
 
   _getShowName(V2TimFriendApplication item) {
-    return TencentUtils.checkString(item.nickname) ??
-        TencentUtils.checkString(item.userID);
+    return TencentUtils.checkString(item.nickname) ?? TencentUtils.checkString(item.userID);
   }
 
-  Widget _itemBuilder(
-      BuildContext context, V2TimFriendApplication applicationInfo) {
+  Widget _itemBuilder(BuildContext context, V2TimFriendApplication applicationInfo) {
     final theme = Provider.of<TUIThemeViewModel>(context).theme;
     final showName = _getShowName(applicationInfo);
     final faceUrl = applicationInfo.faceUrl ?? "";
     final applicationText = applicationInfo.addWording ?? "";
-    final isDesktopScreen =
-        TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
+    final isDesktopScreen = TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
 
     return Material(
-      color: theme.wideBackgroundColor,
+      color: Colors.black,
       child: InkWell(
         onTap: () {},
         child: Container(
           padding: EdgeInsets.only(
-              top: isDesktopScreen ? 6 : 10,
-              left: 16,
-              right: isDesktopScreen ? 16 : 0),
+              top: isDesktopScreen ? 6 : 10, left: 16, right: isDesktopScreen ? 16 : 0),
           child: Row(
             children: [
               Container(
@@ -84,16 +74,13 @@ class _TIMUIKitNewContactState extends TIMUIKitState<TIMUIKitNewContact> {
                 decoration: BoxDecoration(
                     border: Border(
                         bottom: BorderSide(
-                            color: theme.weakDividerColor ??
-                                CommonColor.weakDividerColor))),
+                            color: theme.weakDividerColor ?? CommonColor.weakDividerColor))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
-                          top: (applicationText.isNotEmpty && isDesktopScreen)
-                              ? 10
-                              : 0),
+                          top: (applicationText.isNotEmpty && isDesktopScreen) ? 10 : 0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -101,8 +88,7 @@ class _TIMUIKitNewContactState extends TIMUIKitState<TIMUIKitNewContact> {
                           Text(
                             showName,
                             style: TextStyle(
-                                color: theme.darkTextColor,
-                                fontSize: isDesktopScreen ? 14 : 18),
+                                color: theme.darkTextColor, fontSize: isDesktopScreen ? 14 : 18),
                           ),
                           if (applicationText.isNotEmpty && isDesktopScreen)
                             const SizedBox(
@@ -111,8 +97,7 @@ class _TIMUIKitNewContactState extends TIMUIKitState<TIMUIKitNewContact> {
                           if (applicationText.isNotEmpty && isDesktopScreen)
                             Text(
                               applicationText,
-                              style: TextStyle(
-                                  color: theme.weakTextColor, fontSize: 12),
+                              style: TextStyle(color: theme.weakTextColor, fontSize: 12),
                             ),
                         ],
                       ),
@@ -122,15 +107,19 @@ class _TIMUIKitNewContactState extends TIMUIKitState<TIMUIKitNewContact> {
                       margin: const EdgeInsets.only(right: 8),
                       child: InkWell(
                         child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 4),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: theme.primaryColor,
-                              border: Border.all(
-                                  width: 1,
-                                  color: theme.primaryColor ??
-                                      CommonColor.weakTextColor)),
+                            borderRadius: BorderRadius.circular(13),
+                            gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                Color(0xFF6D49FF),
+                                Color(0xFFA073DE),
+                                Color(0xFFD9ADF9),
+                              ],
+                            ),
+                          ),
                           child: Text(
                             TIM_t("同意"),
                             style: TextStyle(
@@ -157,18 +146,14 @@ class _TIMUIKitNewContactState extends TIMUIKitState<TIMUIKitNewContact> {
                         child: InkWell(
                           child: Container(
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                color: Colors.white,
-                                border: Border.all(
-                                    width: 1,
-                                    color: theme.primaryColor ??
-                                        CommonColor.weakTextColor)),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 4),
+                                borderRadius: BorderRadius.circular(13),
+                                color: Color(0x33FFFFFF),
+                               ),
+                            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
                             child: Text(
                               TIM_t("拒绝"),
                               style: TextStyle(
-                                color: theme.primaryColor,
+                                color: Colors.white,
                                 fontSize: isDesktopScreen ? 12 : null,
                               ),
                             ),
