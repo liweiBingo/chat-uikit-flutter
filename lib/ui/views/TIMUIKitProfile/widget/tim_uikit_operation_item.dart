@@ -60,7 +60,7 @@ class TIMUIKitOperationItem extends TIMUIKitStatelessWidget {
               horizontal: isUseCheckedBoxOnWide ? 6 : 16, vertical: smallCardMode ? 0 : 4)
           : const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       // margin: isDesktopScreen ? null : const EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(8)),
+      decoration: BoxDecoration(color: Color(0x33FFFFFF), borderRadius: BorderRadius.circular(13)),
       clipBehavior: Clip.antiAlias,
       child: (isDesktopScreen && isUseCheckedBoxOnWide)
           ? Row(
