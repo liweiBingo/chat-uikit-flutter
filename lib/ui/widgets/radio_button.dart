@@ -27,7 +27,7 @@ class CheckBoxButton extends TIMUIKitStatelessWidget {
         ? BoxDecoration(
             border: Border.all(color: hexToColor("888888")),
             shape: BoxShape.circle,
-            color: Colors.white)
+            color: Colors.black)
         : BoxDecoration(shape: BoxShape.circle, color: theme.primaryColor);
 
     if (disabled) {
@@ -56,11 +56,11 @@ class CheckBoxButton extends TIMUIKitStatelessWidget {
                   height: size ?? 22,
                   width: size ?? 22,
                   decoration: boxDecoration,
-                  child: Icon(
+                  child: isChecked ? Icon(
                     Icons.check,
                     size: size != null ? (size! / 2) : 11,
                     color: Colors.white,
-                  ),
+                  ) : null,
                 ),
               ));
   }
