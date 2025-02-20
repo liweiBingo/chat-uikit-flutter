@@ -175,7 +175,7 @@ class LinkText extends TIMStatelessWidget {
         }
       }
     },
-        style: style ?? const TextStyle(fontSize: 16.0),
+        style: TextStyle(fontSize: 14.0,color: Colors.white),
         specialTextSpanBuilder: DefaultSpecialTextSpanBuilder(
           isUseQQPackage: isUseQQPackage,
           isUseTencentCloudChatPackage: isUseTencentCloudChatPackage,

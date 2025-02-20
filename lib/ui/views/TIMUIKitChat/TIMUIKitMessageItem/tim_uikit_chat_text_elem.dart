@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:intl/intl.dart';
 import 'package:tencent_cloud_chat_uikit/ui/utils/screen_utils.dart';
 import 'package:extended_text/extended_text.dart';
 import 'package:flutter/material.dart';
@@ -258,6 +259,31 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
                     checkHttpLink: true,
                   )),
           // If the link preview info is available, render the preview card.
+
+          Padding(
+            padding: const EdgeInsets.only(top: 3),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+
+                Image.asset(
+                  widget.message.isPeerRead!
+                      ? "images/grey_double_check_icon.png"
+                      : "images/double_check_icon.png" ,
+                  width: 15,
+                  height: 15,
+                  package: 'tencent_cloud_chat_uikit',
+
+                ),
+                Text(
+                  formatTimestampTo12Hour(widget.message.timestamp ?? 0),
+                  style: TextStyle(color: Colors.white, fontSize: 11),
+                )
+              ],
+            ),
+          ),
+
           if (_renderPreviewWidget() != null &&
               widget.chatModel.chatConfig.urlPreviewType ==
                   UrlPreviewType.previewCardAndHyperlink)
@@ -268,4 +294,11 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
       ),
     );
   }
+  String formatTimestampTo12Hour(int timestamp) {
+    DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+    // 使用DateFormat来进行格式化，设置为hh:mm a格式（hh表示12小时制小时，mm表示分钟，a表示AM/PM标识）
+    DateFormat formatter = DateFormat('hh:mm a', 'en_US');
+    return formatter.format(dateTime);
+  }
+
 }

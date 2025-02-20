@@ -1197,14 +1197,14 @@ class _TIMUIKItHistoryMessageListItemState
         if (widget.showMessageReadReceipt &&
             model.conversationType == ConvType.c2c &&
             isSelf && message.status == MessageStatus.V2TIM_MSG_STATUS_SEND_SUCC)
-          Container(
-            padding: const EdgeInsets.only(bottom: 3),
-            margin: const EdgeInsets.only(right: 6),
-            child: Text(
-              isPeerRead ? TIM_t("已读") : TIM_t("未读"),
-              style: TextStyle(color: theme.chatMessageItemUnreadStatusTextColor, fontSize: 12),
-            ),
-          ),
+          // Container(
+          //   padding: const EdgeInsets.only(bottom: 3),
+          //   margin: const EdgeInsets.only(right: 6),
+          //   child: Text(
+          //     isPeerRead ? TIM_t("已读") : TIM_t("未读"),
+          //     style: TextStyle(color: Colors.transparent, fontSize: 12),
+          //   ),
+          // ),
         if (model.chatConfig.isShowReadingStatus &&
             model.conversationType == ConvType.group &&
             isSelf && message.status == MessageStatus.V2TIM_MSG_STATUS_SEND_SUCC &&
