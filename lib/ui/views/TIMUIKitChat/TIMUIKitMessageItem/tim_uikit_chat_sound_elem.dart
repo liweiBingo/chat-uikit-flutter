@@ -251,7 +251,7 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                     ]
                   : [
                       isPlaying
-                          ? Lottie.asset("images/lottie/play_voice_send2_lo.json", width: 20, height: 20)
+                          ? Lottie.asset("images/lottie/play_voice_send2_lo.json", width: 20, height: 20,package: "tencent_cloud_chat_uikit")
 
                           // ? Image.asset(
                           //         'images/play_voice_receive2.gif',
