@@ -15,6 +15,7 @@ class LinkPreviewEntry {
       bool isUseQQPackage = false,
       bool isUseTencentCloudChatPackage = false,
       bool isUseTencentCloudChatPackageOldKeys = false,
+        required bool isSelf ,
       List<CustomEmojiFaceData> customEmojiStickerList = const []}) {
     return ({TextStyle? style}) {
       return isMarkdown
@@ -33,6 +34,7 @@ class LinkPreviewEntry {
               isEnableTextSelection: isEnableTextSelection,
               messageText: messageText,
               style: style,
+              isSelf: isSelf,
               onLinkTap: onLinkTap,
               isUseQQPackage: isUseQQPackage,
               isUseTencentCloudChatPackage: isUseTencentCloudChatPackage,

@@ -366,6 +366,7 @@ class _TIMUIKitReplyElemState extends TIMUIKitState<TIMUIKitReplyElem> {
             bottomRight: Radius.circular(10));
     final textWithLink = LinkPreviewEntry.getHyperlinksText(
         widget.message.textElem?.text ?? "",
+
         widget.chatModel.chatConfig.isSupportMarkdownForTextMessage,
         onLinkTap: widget.chatModel.chatConfig.onTapLink,
         isUseQQPackage: widget
@@ -379,7 +380,7 @@ class _TIMUIKitReplyElemState extends TIMUIKitState<TIMUIKitReplyElem> {
             false,
         customEmojiStickerList: widget.customEmojiStickerList,
         isEnableTextSelection:
-            widget.chatModel.chatConfig.isEnableTextSelection ?? false);
+            widget.chatModel.chatConfig.isEnableTextSelection ?? false, isSelf: widget.message.isSelf??false);
     return Container(
       padding: widget.textPadding ?? EdgeInsets.all(isDesktopScreen ? 12 : 10),
       decoration: BoxDecoration(

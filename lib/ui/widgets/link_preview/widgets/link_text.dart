@@ -45,6 +45,7 @@ class LinkTextMarkdown extends TIMStatelessWidget {
       this.customEmojiStickerList = const [],
       this.isEnableTextSelection,
       this.onLinkTap,
+
       this.style})
       : super(key: key);
 
@@ -97,12 +98,15 @@ class LinkText extends TIMStatelessWidget {
 
   final bool? isEnableTextSelection;
 
+  final bool isSelf;
+
   const LinkText(
       {Key? key,
       required this.messageText,
       this.onLinkTap,
       this.isEnableTextSelection,
       this.style,
+        required this.isSelf,
       this.isUseQQPackage = false,
       this.isUseTencentCloudChatPackage = false,
       this.isUseTencentCloudChatPackageOldKeys = false,
@@ -175,7 +179,7 @@ class LinkText extends TIMStatelessWidget {
         }
       }
     },
-        style: TextStyle(fontSize: 14.0,color: Colors.white),
+        style: TextStyle(fontSize: 14.0,color: isSelf ?Colors.white : Colors.black  ),
         specialTextSpanBuilder: DefaultSpecialTextSpanBuilder(
           isUseQQPackage: isUseQQPackage,
           isUseTencentCloudChatPackage: isUseTencentCloudChatPackage,

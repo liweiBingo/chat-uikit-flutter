@@ -177,7 +177,7 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
             false,
         customEmojiStickerList: widget.customEmojiStickerList,
         isEnableTextSelection:
-            widget.chatModel.chatConfig.isEnableTextSelection ?? false);
+            widget.chatModel.chatConfig.isEnableTextSelection ?? false, isSelf: widget.message.isSelf??false);
     final borderRadius = widget.isFromSelf
         ? const BorderRadius.only(
             topLeft: Radius.circular(10),
@@ -260,7 +260,7 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
                   )),
           // If the link preview info is available, render the preview card.
 
-          Padding(
+          (widget.message.isSelf??false) ?   Padding(
             padding: const EdgeInsets.only(top: 3),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -282,7 +282,7 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
                 )
               ],
             ),
-          ),
+          ) : SizedBox(),
 
           if (_renderPreviewWidget() != null &&
               widget.chatModel.chatConfig.urlPreviewType ==

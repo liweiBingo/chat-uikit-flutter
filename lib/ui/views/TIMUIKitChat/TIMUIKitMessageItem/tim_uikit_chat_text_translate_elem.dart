@@ -133,7 +133,7 @@ class _TIMUIKitTextTranslationElemState
             false,
         customEmojiStickerList: widget.customEmojiStickerList,
         isEnableTextSelection:
-            widget.chatModel.chatConfig.isEnableTextSelection ?? false);
+            widget.chatModel.chatConfig.isEnableTextSelection ?? false, isSelf: widget.message.isSelf ??false);
 
     return TencentUtils.checkString(translateText) != null
         ? Container(
