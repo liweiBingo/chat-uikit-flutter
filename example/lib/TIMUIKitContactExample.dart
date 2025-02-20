@@ -11,7 +11,15 @@ class TIMUIKitContactExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return TIMUIKitContact(
       onTapItem: (c){
-
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Scaffold(
+                  appBar: AppBar(title: Text(c.userProfile?.nickName??'')),
+                  body: TIMUIKitChatExample(
+                    selectedConversation: V2TimConversation(conversationID: c.userID,userID: c.userID),
+                  )),
+            ));
       },
     );
   }

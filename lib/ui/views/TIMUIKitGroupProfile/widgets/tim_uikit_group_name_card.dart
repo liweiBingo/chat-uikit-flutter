@@ -36,9 +36,9 @@ class GroupProfileNameCardState extends TIMUIKitState<GroupProfileNameCard>{
     controller.text = nameCard ?? "";
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-                      color: Color(0xFF1D1B36),          border: isDesktopScreen ? null : Border(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),      margin: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration( borderRadius: BorderRadius.circular(13),
+          color: Color(0x33FFFFFF),          border: isDesktopScreen ? null : Border(
               bottom: BorderSide(
                   color:
                   theme.weakDividerColor ?? CommonColor.weakDividerColor))),

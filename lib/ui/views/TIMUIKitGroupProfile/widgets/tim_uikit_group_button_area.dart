@@ -333,9 +333,10 @@ class GroupProfileButtonArea extends TIMUIKitStatelessWidget {
                 },
                 child: Container(
                   alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  margin: EdgeInsets.symmetric(horizontal: 10),
                   decoration: BoxDecoration(
-                      color: Color(0xFF1D1B36),                      border: Border(
+                      color: Color(0x33FFFFFF),          borderRadius: BorderRadius.circular(13),               border: Border(
                           bottom: BorderSide(
                               color: theme.weakDividerColor ??
                                   CommonColor.weakDividerColor))),

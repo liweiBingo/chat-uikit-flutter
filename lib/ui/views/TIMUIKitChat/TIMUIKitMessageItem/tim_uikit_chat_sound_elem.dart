@@ -266,9 +266,9 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                               package: 'tencent_cloud_chat_uikit',
                             ),
                       Text(
-                        " ${stateElement.duration}''",
+                        "  ${stateElement.duration}''",
                         style:
-                            widget.fontStyle ?? const TextStyle(color: Colors.white, fontSize: 12),
+                            widget.fontStyle ?? const TextStyle(color: Colors.black, fontSize: 12),
                       ),
                       Container(width: _getSoundLen()),
                     ],

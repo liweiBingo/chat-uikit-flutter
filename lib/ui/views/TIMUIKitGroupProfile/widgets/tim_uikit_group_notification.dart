@@ -45,8 +45,10 @@ class GroupProfileNotificationState
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-                      color: Color(0xFF1D1B36),          border: isDesktopScreen
+                      color: Color(0x33FFFFFF),   borderRadius: BorderRadius.circular(13),       border: isDesktopScreen
+
               ? null
               : Border(
                   bottom: BorderSide(

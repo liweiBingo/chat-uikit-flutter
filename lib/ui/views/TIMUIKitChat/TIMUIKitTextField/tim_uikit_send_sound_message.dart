@@ -311,7 +311,7 @@ class _SendSoundMessageState extends TIMUIKitState<SendSoundMessage> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16,
-            color: theme.darkTextColor,
+            color: Colors.black,
           ),
         ),
       ),
