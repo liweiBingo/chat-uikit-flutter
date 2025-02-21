@@ -377,7 +377,7 @@ class TIMUIKitMessageTooltipState
                       item.label,
                       style: TextStyle(
                         decoration: TextDecoration.none,
-                        color: theme.darkTextColor,
+                        color: Colors.grey,
                         fontSize: 10,
                       ),
                     )
@@ -537,25 +537,29 @@ class TIMUIKitMessageTooltipState
             : null;
         final message = widget.message;
         return Container(
-            decoration: isDesktopScreen
-                ? BoxDecoration(
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Color(0xCCbebebe),
-                        offset: Offset(2, 2),
-                        blurRadius: 10,
-                        spreadRadius: 1,
-                      ),
-                    ],
-                    border: Border.all(
-                      width: 1,
-                      color: hexToColor("dee0e3"),
-                    ),
-                    color: Colors.white,
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  )
-                : null,
-            color: isDesktopScreen ? null : Colors.white,
+          decoration: BoxDecoration(
+            color:Colors.white,
+borderRadius: BorderRadius.circular(10)
+          ),
+            // decoration: isDesktopScreen
+            //     ? BoxDecoration(
+            //         // boxShadow: const [
+            //         //   BoxShadow(
+            //         //     color: Color(0xCCbebebe),
+            //         //     offset: Offset(2, 2),
+            //         //     blurRadius: 10,
+            //         //     spreadRadius: 1,
+            //         //   ),
+            //         // ],
+            //         border: Border.all(
+            //           width: 1,
+            //           color: hexToColor("dee0e3"),
+            //         ),
+            //         color: Colors.white,
+            //         borderRadius: const BorderRadius.all(Radius.circular(10)),
+            //       )
+            //     : null,
+            // color: isDesktopScreen ? null : Colors.white,
             padding: EdgeInsets.symmetric(
                 horizontal: 8, vertical: isDesktopScreen ? 8 : 4),
             child: ConstrainedBox(

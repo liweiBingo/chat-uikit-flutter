@@ -165,7 +165,7 @@ class _TIMUIKitMessageReactionWrapperState
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: const Color(0xFF988BDB),
         borderRadius: widget.borderRadius ?? borderRadius,
       ),
       constraints:

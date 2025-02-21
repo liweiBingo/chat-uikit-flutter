@@ -108,14 +108,15 @@ class _RecentForwardListState extends TIMUIKitState<RecentForwardList> {
                     child: Container(
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.only(top: 10, bottom: isDesktopScreen ? 12 : 19),
-                  decoration: isDesktopScreen ? null : const BoxDecoration(
-                      border:
-                          Border(bottom: BorderSide(color: Color(0xFFDBDBDB)))),
+                  // decoration: isDesktopScreen ? null : const BoxDecoration(
+                  //     // border:
+                  //         // Border(bottom: BorderSide(color: Color(0xFFDBDBDB))
+                  //         )),
                   child: Text(
                     showName,
                     // textAlign: TextAlign.center,
                     style:
-                    TextStyle(color: const Color(0xFF111111), fontSize: isDesktopScreen ? 16 : 18),
+                    TextStyle(color: const Color(0xFFFFFFFF), fontSize: isDesktopScreen ? 16 : 18),
                   ),
                 ))
               ],
