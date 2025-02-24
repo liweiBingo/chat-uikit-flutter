@@ -121,7 +121,7 @@ class _GroupProfileMemberListState
     final isGroupMember =
         memberInfo.role == GroupMemberRoleType.V2TIM_GROUP_MEMBER_ROLE_MEMBER;
     return Container(
-        color: Colors.white,
+        color: Colors.black,
         child: Slidable(
             endActionPane: widget.canSlideDelete && isGroupMember
                 ? ActionPane(motion: const DrawerMotion(), children: [
@@ -133,7 +133,7 @@ class _GroupProfileMemberListState
                       },
                       flex: 1,
                       backgroundColor:
-                          theme.cautionColor ?? CommonColor.cautionColor,
+                          Colors.black,
                       autoClose: true,
                       label: TIM_t("删除"),
                     )
@@ -184,7 +184,7 @@ class _GroupProfileMemberListState
                       ),
                     ),
                     Text(_getShowName(memberInfo),
-                        style: TextStyle(fontSize: isDesktopScreen ? 14 : 16)),
+                        style: TextStyle(fontSize: isDesktopScreen ? 14 : 16,color: Colors.white)),
                     memberInfo.role ==
                             GroupMemberRoleType.V2TIM_GROUP_MEMBER_ROLE_OWNER
                         ? Container(
@@ -195,14 +195,14 @@ class _GroupProfileMemberListState
                                   fontSize: isDesktopScreen ? 10 : 12,
                                 )),
                             padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: theme.ownerColor ??
-                                      CommonColor.ownerColor,
-                                  width: 1),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(4.0)),
-                            ),
+                            // decoration: BoxDecoration(
+                            //   border: Border.all(
+                            //       color: theme.ownerColor ??
+                            //           CommonColor.ownerColor,
+                            //       width: 1),
+                            //   borderRadius:
+                            //       const BorderRadius.all(Radius.circular(4.0)),
+                            // ),
                           )
                         : memberInfo.role ==
                                 GroupMemberRoleType
@@ -216,10 +216,10 @@ class _GroupProfileMemberListState
                                     )),
                                 padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: theme.adminColor ??
-                                          CommonColor.adminColor,
-                                      width: 1),
+                                  // border: Border.all(
+                                  //     color: theme.adminColor ??
+                                  //         CommonColor.adminColor,
+                                  //     width: 1),
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(4.0)),
                                 ),
@@ -249,12 +249,12 @@ class _GroupProfileMemberListState
                   }
                 },
               ),
-              Divider(
-                  thickness: 1,
-                  indent: 74,
-                  endIndent: 0,
-                  color: theme.weakBackgroundColor,
-                  height: 0)
+              // Divider(
+              //     thickness: 1,
+              //     indent: 74,
+              //     endIndent: 0,
+              //     color: theme.weakBackgroundColor,
+              //     height: 0)
             ])));
   }
 
@@ -267,7 +267,7 @@ class _GroupProfileMemberListState
       height: susHeight,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(left: 16.0),
-      color: theme.weakBackgroundColor,
+      color: Color(0xE6000000),
       alignment: Alignment.centerLeft,
       child: Text(
         tag,

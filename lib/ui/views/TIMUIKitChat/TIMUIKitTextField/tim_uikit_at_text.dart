@@ -146,7 +146,9 @@ class _AtTextState extends TIMUIKitState<AtText> {
               : GroupMemberSearchTextField(
                   onTextChange: (text) =>
                       handleSearchGroupMembers(text, context),
-                ));
+                )
+
+      );
     }
 
     return TUIKitScreenUtils.getDeviceWidget(

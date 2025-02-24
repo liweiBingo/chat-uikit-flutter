@@ -78,30 +78,33 @@ class _AZListViewContainerState extends TIMUIKitState<AZListViewContainer> {
   Widget tuiBuild(BuildContext context, TUIKitBuildValue value) {
     final isDesktopScreen =
         TUIKitScreenUtils.getFormFactor(context) == DeviceType.Desktop;
-    return ChangeNotifierProvider.value(
-        value: serviceLocator<TUIThemeViewModel>(),
-        child: Consumer<TUIThemeViewModel>(
-            builder: (context, tuiTheme, child) => AzListView(
-                physics: const BouncingScrollPhysics(
-                    parent: AlwaysScrollableScrollPhysics()),
-                data: _list!,
-                itemCount: _list!.length,
-                itemBuilder: widget.itemBuilder,
-                indexBarData: (!isDesktopScreen && widget.isShowIndexBar)
-                    ? SuspensionUtil.getTagIndexList(_list!)
-                    .where((element) => element != "@")
-                    .toList()
-                    : [],
-                susItemBuilder: (BuildContext context, int index) {
-                  if (widget.susItemBuilder != null) {
-                    return widget.susItemBuilder!(context, index);
-                  }
-                  ISuspensionBeanImpl model = _list![index];
-                  if (model.getSuspensionTag() == "@") {
-                    return Container();
-                  }
-                  return getSusItem(context, model.getSuspensionTag());
-                })));
+    return Container(
+      color: Colors.black,
+      child: ChangeNotifierProvider.value(
+          value: serviceLocator<TUIThemeViewModel>(),
+          child: Consumer<TUIThemeViewModel>(
+              builder: (context, tuiTheme, child) => AzListView(
+                  physics: const BouncingScrollPhysics(
+                      parent: AlwaysScrollableScrollPhysics()),
+                  data: _list!,
+                  itemCount: _list!.length,
+                  itemBuilder: widget.itemBuilder,
+                  indexBarData: (!isDesktopScreen && widget.isShowIndexBar)
+                      ? SuspensionUtil.getTagIndexList(_list!)
+                      .where((element) => element != "@")
+                      .toList()
+                      : [],
+                  susItemBuilder: (BuildContext context, int index) {
+                    if (widget.susItemBuilder != null) {
+                      return widget.susItemBuilder!(context, index);
+                    }
+                    ISuspensionBeanImpl model = _list![index];
+                    if (model.getSuspensionTag() == "@") {
+                      return Container();
+                    }
+                    return getSusItem(context, model.getSuspensionTag());
+                  }))),
+    );
   }
 }
 

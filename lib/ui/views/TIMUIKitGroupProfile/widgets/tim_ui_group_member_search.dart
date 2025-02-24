@@ -24,17 +24,23 @@ class GroupMemberSearchTextField extends TIMUIKitStatelessWidget {
         (text) => onTextChange(text), const Duration(milliseconds: 300));
 
     return Container(
-      color: Colors.white,
+      color: Colors.black,
+      padding:const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
       child: Column(children: [
         if(!isDesktopScreen) Container(
           decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-              border: Border.all(color: theme.weakBackgroundColor!, width: 12)),
+              borderRadius: const BorderRadius.all(Radius.circular(13)),
+              // border: Border.all(color: theme.weakBackgroundColor!, width: 12)
+            color: Color(0x33FFFFFF)
+          ),
           child: TextField(
             onChanged: debounceFunc,
             decoration: InputDecoration(
+              //去掉下划线
+              border: InputBorder.none,
               hintText: TIM_t("搜索"),
-              prefixIcon: const Icon(Icons.search),
+              hintStyle: TextStyle(color: Colors.grey),
+              prefixIcon: const Icon(Icons.search,color: Colors.grey,),
             ),
           ),
         ),
@@ -48,12 +54,12 @@ class GroupMemberSearchTextField extends TIMUIKitStatelessWidget {
             debounceFunc(text);
           }, focusNode: focusNode,
         ),
-        Divider(
-            thickness: 1,
-            indent: 74,
-            endIndent: 0,
-            color: theme.weakBackgroundColor,
-            height: 0)
+        // Divider(
+        //     thickness: 1,
+        //     indent: 74,
+        //     endIndent: 0,
+        //     color: theme.weakBackgroundColor,
+        //     height: 0)
       ]),
     );
   }
