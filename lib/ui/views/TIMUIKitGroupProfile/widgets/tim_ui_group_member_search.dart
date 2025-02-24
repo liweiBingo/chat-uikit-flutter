@@ -35,9 +35,11 @@ class GroupMemberSearchTextField extends TIMUIKitStatelessWidget {
           ),
           child: TextField(
             onChanged: debounceFunc,
+            style:TextStyle(fontSize: 14,color: Colors.white) ,
             decoration: InputDecoration(
               //去掉下划线
               border: InputBorder.none,
+              contentPadding: EdgeInsets.symmetric(vertical: 12), // 调整垂直间距
               hintText: TIM_t("搜索"),
               hintStyle: TextStyle(color: Colors.grey),
               prefixIcon: const Icon(Icons.search,color: Colors.grey,),
