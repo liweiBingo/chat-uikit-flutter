@@ -52,12 +52,9 @@ class GroupProfileAddOpt extends TIMUIKitStatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-          color: Color(0xFF1D1B36),
-          border: isDesktopScreen ? null : Border(
-              bottom: BorderSide(
-                  color:
-                      theme.weakDividerColor ?? CommonColor.weakDividerColor))),
+            margin: EdgeInsets.symmetric(horizontal: 10),
+       decoration: BoxDecoration(
+          color: Color(0x33FFFFFF), borderRadius: BorderRadius.circular(13)),
       child: InkWell(
         onTapDown: (details) async {
           if(isDesktopScreen){
@@ -128,7 +125,7 @@ class GroupProfileAddOpt extends TIMUIKitStatelessWidget {
               children: [
                 Text(
                   addOpt,
-                  style: TextStyle(fontSize: isDesktopScreen ? 14 : 16, color: Colors.black),
+                  style: TextStyle(fontSize: isDesktopScreen ? 14 : 16, color: Colors.white),
                 ),
                 Icon(Icons.keyboard_arrow_right, color: theme.weakTextColor)
               ],
