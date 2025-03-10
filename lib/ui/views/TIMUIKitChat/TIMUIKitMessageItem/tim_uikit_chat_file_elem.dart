@@ -417,10 +417,11 @@ class _TIMUIKitFileElemState extends TIMUIKitState<TIMUIKitFileElem> {
                 child: Container(
                   width: 170,
                   decoration: BoxDecoration(
-                      border: Border.all(
-                        color: theme.weakDividerColor ??
-                            CommonColor.weakDividerColor,
-                      ),
+                      // border: Border.all(
+                      //   color: theme.weakDividerColor ??
+                      //       CommonColor.weakDividerColor,
+                      // ),
+                      color: Colors.grey,
                       borderRadius: borderRadius),
                   child: Stack(children: [
                     ClipRRect(
@@ -430,7 +431,7 @@ class _TIMUIKitFileElemState extends TIMUIKitState<TIMUIKitFileElem> {
                         value: (received == 100 ? 0 : received) / 100,
                         backgroundColor: received == 100
                             ? theme.weakBackgroundColor
-                            : Colors.white,
+                            : Colors.grey,
                         valueColor: AlwaysStoppedAnimation(
                             theme.lightPrimaryMaterialColor.shade50),
                       ),
@@ -449,7 +450,7 @@ class _TIMUIKitFileElemState extends TIMUIKitState<TIMUIKitFileElem> {
                                 children: [
                                   Container(
                                     constraints:
-                                        const BoxConstraints(maxWidth: 160),
+                                        const BoxConstraints(maxWidth: 160,),
                                     child: LayoutBuilder(
                                       builder: (buildContext, boxConstraints) {
                                         return CustomText(
