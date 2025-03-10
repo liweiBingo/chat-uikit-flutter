@@ -429,9 +429,7 @@ class _TIMUIKitFileElemState extends TIMUIKitState<TIMUIKitFileElem> {
                       child: LinearProgressIndicator(
                         minHeight: ((containerHeight) ?? 72) - 6,
                         value: (received == 100 ? 0 : received) / 100,
-                        backgroundColor: received == 100
-                            ? theme.weakBackgroundColor
-                            : Colors.grey,
+                        backgroundColor: Colors.grey,
                         valueColor: AlwaysStoppedAnimation(
                             theme.lightPrimaryMaterialColor.shade50),
                       ),
