@@ -269,8 +269,8 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
 
                 Image.asset(
                   widget.message.isPeerRead!
-                      ? "images/grey_double_check_icon.png"
-                      :  "images/double_check_icon.png",
+                      ? "images/double_check_icon.png"
+                      : "images/grey_double_check_icon.png" ,
                   width: 15,
                   height: 15,
                   package: 'tencent_cloud_chat_uikit',

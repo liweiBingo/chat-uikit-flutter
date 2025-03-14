@@ -282,14 +282,16 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                       children: [
                         widget.message.isPeerRead!
                             ? Image.asset(
-                                "images/grey_double_check_icon.png",
+                          "images/double_check_icon.png",
+
                                 width: 15,
                                 package: 'tencent_cloud_chat_uikit',
                                 height: 15,
                               )
                             : Image.asset(
-                                "images/double_check_icon.png",
-                                width: 15,
+                          "images/grey_double_check_icon.png",
+
+                          width: 15,
                                 package: 'tencent_cloud_chat_uikit',
                                 height: 15,
                               ),
