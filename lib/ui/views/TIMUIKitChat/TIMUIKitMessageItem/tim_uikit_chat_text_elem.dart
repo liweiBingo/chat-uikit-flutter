@@ -266,7 +266,8 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-
+widget.message.groupID != null ?
+               const SizedBox() :
                 Image.asset(
                   widget.message.isPeerRead!
                       ? "images/double_check_icon.png"

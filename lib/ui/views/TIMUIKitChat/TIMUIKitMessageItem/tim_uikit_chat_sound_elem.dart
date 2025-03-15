@@ -280,6 +280,8 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+
+                        widget.message.groupID != null ?const SizedBox():
                         widget.message.isPeerRead!
                             ? Image.asset(
                           "images/double_check_icon.png",
