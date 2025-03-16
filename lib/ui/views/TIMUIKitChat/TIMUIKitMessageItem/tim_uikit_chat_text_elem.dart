@@ -266,21 +266,27 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-widget.message.groupID != null ?
-               const SizedBox() :
-                Image.asset(
-                  widget.message.isPeerRead!
-                      ? "images/double_check_icon.png"
-                      : "images/grey_double_check_icon.png" ,
-                  width: 15,
-                  height: 15,
-                  package: 'tencent_cloud_chat_uikit',
-
-                ),
-                Text(
-                  formatTimestampTo12Hour(widget.message.timestamp ?? 0),
-                  style: TextStyle(color: Colors.white, fontSize: 11),
-                )
+     widget.message.groupID == null &&
+                              widget.message.userID == null
+                          ? const SizedBox(
+                              width: 15,
+                            )
+                          : widget.message.groupID == null
+                              ? Image.asset(
+                                  widget.message.isPeerRead!
+                                      ? "images/double_check_icon.png"
+                                      : "images/grey_double_check_icon.png",
+                                  width: 15,
+                                  height: 15,
+                                  package: 'tencent_cloud_chat_uikit',
+                                )
+                              : const SizedBox(
+                                  width: 15,
+                                ),
+                      Text(
+                        formatTimestampTo12Hour(widget.message.timestamp ?? 0),
+                        style: TextStyle(color: Colors.white, fontSize: 11),
+                      )
               ],
             ),
           ) : SizedBox(),
