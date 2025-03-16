@@ -281,26 +281,36 @@ class _TIMUIKitSoundElemState extends TIMUIKitState<TIMUIKitSoundElem> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
 
-                        widget.message.groupID != null ?const SizedBox():
-                        widget.message.isPeerRead!
-                            ? Image.asset(
-                          "images/double_check_icon.png",
-
+                           widget.message.groupID == null &&
+                                widget.message.userID == null
+                            ? const SizedBox(
                                 width: 15,
-                                package: 'tencent_cloud_chat_uikit',
-                                height: 15,
                               )
-                            : Image.asset(
-                          "images/grey_double_check_icon.png",
-
-                          width: 15,
-                                package: 'tencent_cloud_chat_uikit',
-                                height: 15,
-                              ),
+                            : widget.message.groupID != null ||
+                                    widget.message.status == 1
+                                ? const SizedBox(
+                                    width: 15,
+                                  )
+                                : widget.message.isPeerRead!
+                                    ? Image.asset(
+                                        "images/double_check_icon.png",
+                                        width: 15,
+                                        package: 'tencent_cloud_chat_uikit',
+                                        height: 15,
+                                      )
+                                    : Image.asset(
+                                        "images/grey_double_check_icon.png",
+                                        width: 15,
+                                        package: 'tencent_cloud_chat_uikit',
+                                        height: 15,
+                                      ),
                         Text(
-                          TencentUtils.formatTimestampTo12Hour(widget.message.timestamp ?? 0),
+                          TencentUtils.formatTimestampTo12Hour(
+                              widget.message.timestamp ?? 0),
                           style: TextStyle(
-                              color: widget.isFromSelf ? Colors.white : Colors.black,
+                              color: widget.isFromSelf
+                                  ? Colors.white
+                                  : Colors.black,
                               fontSize: 10,
                               height: 1.1),
                         )
